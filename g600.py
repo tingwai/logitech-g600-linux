@@ -1,21 +1,31 @@
 import subprocess
-
 import sys
 
-# bytestring used because console output is also bytestring, minor optimization
+"""
++-------+-------+-------+-------+
+|  G11  |  G14  |  G17  |  G20  |
++-------+-------+-------+-------+
+|  G10  |  G13  |  G16  |  G19  |
++-------+-------+-------+-------+
+|  G9   |  G12  |  G15  |  G18  |
++-------+-------+-------+-------+
+"""
+
+# bytestring used because console output is also bytestring
 CUSTOM_BINDINGS = {
+    b'firefox': {},
+    b'idea': {
+        # 'G9': 'xdotool key ctrl+shift+F4',
+        # 'G11': 'xdotool key alt+Left',
+        # 'G12': 'xdotool key ctrl+F4',
+        # 'G14': 'xdotool key alt+Right',
+        'G-shift + G10': 'xdotool key ctrl+Home',
+        'G-shift + G13': 'xdotool key ctrl+End',
+        'G-shift + G16': 'xdotool key shift+Escape',
+    },
     b'terminal': {
         'G11': 'xdotool key ctrl+Page_Up',
         'G14': 'xdotool key ctrl+Page_Down',
-    },
-    b'firefox': {},
-    b'idea': {
-        'G9': 'xdotool key ctrl+shift+F4',
-        'G11': 'xdotool key alt+Left',
-        'G12': 'xdotool key ctrl+F4',
-        'G14': 'xdotool key alt+Right',
-        'G-shift + G10': 'xdotool key ctrl+Home',
-        'G-shift + G13': 'xdotool key ctrl+End',
     },
     # b'sublime': {},
     b'spotify': {
@@ -29,10 +39,19 @@ CUSTOM_BINDINGS = {
         'G14': 'xdotool key alt+Right',
         'G-shift + G10': 'xdotool key ctrl+Home',
         'G-shift + G13': 'xdotool key ctrl+End',
+        'G-shift + G16': 'xdotool key shift+Escape',
     },
     # b'robo3t': {},
     # b'chrome': {},
     # b'chromium': {},
+    b'vlc': {
+        'G9': 'xdotool key shift+Left',
+        'G10': 'xdotool key alt+Left',
+        'G11': 'xdotool key ctrl+Left',
+        'G12': 'xdotool key shift+Right',
+        'G13': 'xdotool key alt+Right',
+        'G14': 'xdotool key ctrl+Right',
+    }
 }
 for program, bindings in CUSTOM_BINDINGS.items():
     # convert key binding into array of strings, for subprocess.run to consume
@@ -40,19 +59,19 @@ for program, bindings in CUSTOM_BINDINGS.items():
     bindings.update((key, val.split(' ')) for key, val in bindings.items())
 
 DEFAULT_BINDINGS = {
-    'G9': 'xdotool key ctrl+shift+t',
-    'G10': 'xdotool key Page_Up',
-    'G11': 'xdotool key ctrl+shift+Tab',
-    'G12': 'xdotool key ctrl+w',
-    'G13': 'xdotool key Page_Down',
-    'G14': 'xdotool key ctrl+Tab',
-    'G15': 'xdotool key alt+space key n',
-    'G16': 'xdotool key ctrl+alt+Up',
-    'G17': 'xdotool key ctrl+alt+Left',
-    'G18': 'xdotool key alt+F4',
-    'G19': 'xdotool key ctrl+alt+Down',
-    'G20': 'xdotool key ctrl+alt+Right',
-    'G-shift + G9': 'xdotool key alt+9',
+    'G9':            'xdotool key ctrl+shift+t',
+    'G10':           'xdotool key Page_Up',
+    'G11':           'xdotool key ctrl+shift+Tab',
+    'G12':           'xdotool key ctrl+w',
+    'G13':           'xdotool key Page_Down',
+    'G14':           'xdotool key ctrl+Tab',
+    'G15':           'xdotool key alt+space key n',
+    'G16':           'xdotool key ctrl+alt+Up',
+    'G17':           'xdotool key ctrl+alt+Left',
+    'G18':           'xdotool key alt+F4',
+    'G19':           'xdotool key ctrl+alt+Down',
+    'G20':           'xdotool key ctrl+alt+Right',
+    'G-shift + G9':  'xdotool key alt+9',
     'G-shift + G10': 'xdotool key Home',
     'G-shift + G11': 'xdotool key ctrl+shift+Page_Up',
     'G-shift + G12': 'xdotool key ctrl+r',
@@ -60,10 +79,10 @@ DEFAULT_BINDINGS = {
     'G-shift + G14': 'xdotool key ctrl+shift+Page_Down',
     'G-shift + G15': 'playerctl play-pause spotify',
     'G-shift + G16': 'xdotool key Escape',
-    'G-shift + G17': 'amixer -D pulse sset Master 2%+',
+    'G-shift + G17': 'amixer -D pulse sset Master 3%+',
     'G-shift + G18': 'playerctl next spotify',
     'G-shift + G19': 'xdotool key alt+Tab sleep 0.1 key alt+Tab',
-    'G-shift + G20': 'amixer -D pulse sset Master 2%-',
+    'G-shift + G20': 'amixer -D pulse sset Master 3%-',
 }
 # convert key binding into array of strings, for subprocess.run to consume
 # eg. ['xdotool', 'key', 'ctrl+Page_Up']

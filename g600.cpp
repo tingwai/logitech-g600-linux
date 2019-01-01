@@ -20,38 +20,30 @@ struct Command {
 
 // ADD KEY->COMMAND MAPPINGS HERE:
 const Command kCommands[] = {
-  { 4, "xdotool key Page_Up" }, // scroll left
-  { 5, "xdotool key Page_Down" }, // scroll right
-  { 6, "xdotool key ctrl+c" }, // G8
-  { 7, "xdotool key ctrl+shift+c" }, // G7
-  { 8, "i3-msg workspace next_on_output" }, // G9
-  { 9, "i3-msg move workspace next_on_output" }, // G10
-  { 10, "xdotool key ctrl+w" }, // G11
-  { 11, "pulseaudio-ctl down" }, // G12
-  { 12, "pulseaudio-ctl mute" }, // G13
-  { 13, "xdotool key ctrl+z" }, // G14
-  { 14, "xdotool key End" }, // G15
-  { 15, "xdotool key ctrl+End" }, // G16
-  { 16, "xdotool key Return" }, // G17
-  { 17, "i3-msg fullscreen" }, // G18
-  { 18, "xdotool key ctrl+slash t" }, // G19
-  { 19, "" }, // G20
-  { 20, "xdotool key alt+Left" }, // G-shift + scroll left
-  { 21, "xdotool key alt+Right" }, // G-shift + scroll right
-  { 22, "xdotool key ctrl+v" }, // G-shift + G8
-  { 23, "xdotool key ctrl+shift+v" }, // G-shift + G7
-  { 24, "i3-msg workspace prev_on_output" }, // G-shift + G9
-  { 25, "i3-msg move workspace prev_on_output" }, // G-shift + G10
-  { 26, "i3-msg kill" }, // G-shift + G11
-  { 27, "pulseaudio-ctl up" }, // G-shift + G12
-  { 28, "pulseaudio-ctl mute" }, // G-shift + G13
-  { 29, "xdotool key ctrl+shift+z ctrl+y" }, // G-shift + G14
-  { 30, "xdotool key Home" }, // G-shift + G15
-  { 31, "xdotool key ctrl+Home" }, // G-shift + G16
-  { 32, "xdotool key Escape" }, // G-shift + G17
-  { 33, "i3-msg fullscreen" }, // G-shift + G18
-  { 34, "" }, // G-shift + G19
-  { 35, "" }, // G-shift + G20
+  { 4, "python3.6 ./g600.py 'G-shift + G9' &" },
+  { 5, "python3.6 ./g600.py 'G-shift + G10' &" },
+  { 6, "python3.6 ./g600.py 'G-shift + G11' &" },
+  { 7, "python3.6 ./g600.py 'G-shift + G12' &" },
+  { 8, "python3.6 ./g600.py 'G-shift + G13' &" },
+  { 9, "python3.6 ./g600.py 'G-shift + G14' &" },
+  { 10, "python3.6 ./g600.py 'G-shift + G15' &" },
+  { 11, "python3.6 ./g600.py 'G-shift + G16' &" },
+  { 12, "python3.6 ./g600.py 'G-shift + G17' &" },
+  { 13, "python3.6 ./g600.py 'G-shift + G18' &" },
+  { 14, "python3.6 ./g600.py 'G-shift + G19' &" },
+  { 15, "python3.6 ./g600.py 'G-shift + G20' &" },
+  { 30, "python3.6 ./g600.py 'G9' &" },
+  { 31, "python3.6 ./g600.py 'G10' &" },
+  { 32, "python3.6 ./g600.py 'G11' &" },
+  { 33, "python3.6 ./g600.py 'G12' &" },
+  { 34, "python3.6 ./g600.py 'G13' &" },
+  { 35, "python3.6 ./g600.py 'G14' &" },
+  { 36, "python3.6 ./g600.py 'G15' &" },
+  { 37, "python3.6 ./g600.py 'G16' &" },
+  { 38, "python3.6 ./g600.py 'G17' &" },
+  { 39, "python3.6 ./g600.py 'G18' &" },
+  { 45, "python3.6 ./g600.py 'G19' &" },
+  { 46, "python3.6 ./g600.py 'G20' &" },
 };
 
 bool starts_with(const char* haystack, const char* prefix) {
@@ -143,10 +135,10 @@ int main() {
       printf("\n");
       continue;
     }
-    printf("Pressed scancode %d. Mapped command: \"%s\"\n", scancode, cmd->command);
+    printf("Scancode: %d. Command: \"%s\"\n", scancode, cmd->command);
     if (strlen(cmd->command) == 0) continue;
     system(cmd->command);
-    printf("Subprocess finished.\n\n");
+    printf("Subprocess finished.\n");
   }
   
   close(fd);

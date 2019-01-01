@@ -1,13 +1,15 @@
 # Logitech G600 on Linux
 
-Utility program for binding actions to keys on the Logitech G600 gaming mouse. Supports 16 keys and the G-shift button for a total of 32 fast shortcuts.
+Utility program for binding actions to keys on the Logitech G600 gaming mouse. Supports 16 keys and the G-shift button for a total of 32 fast shortcuts. `g600.py` can be configured to set program specific bindings.
 
 Before running this program open the Logitech Gaming Software on a Windows or Mac OS machine. Assign the three basic mouse buttons to their standard functions. The G-shift button should be assigned to the G-shift function. All the remaining buttons (scroll left, scroll right, G7, ... G20) should be set to emulate (unique) keyboard keys (but not modifier keys).
 
 ## Usage
 
 1. Clone this repository.
-2. Open `g600.cpp` and fill in the commands for the keys.
+2. Open `g600.py` and fill in the commands for the keys.
+    * Set default bindings in `DEFAULT_BINDINGS`
+    * Set program specific bindings in `CUSTOM_BINDINGS`
 3. Compile with `g++ g600.cpp -o g600`.
 4. Run with `sudo ./g600`.
 
@@ -19,3 +21,11 @@ The program needs privileges to communicate with G600 so typically it'll be star
 sudo chown .input g600
 sudo chmod g+s g600
 ```
+
+## Notes
+
+When doing initial configuration through Logitech Gaming Software, the G-shift + G9 ... G20 keys should be changed from their default bindings Ctrl+1, Ctrl+2, etc, to something like A, B, etc. Not doing so caused all keys with a Ctrl+num binding to emit the same signature thus unable to assign them different bindings.
+
+Run `xdotool search --class <program_name>` to find the name of a program to add to `CUSTOM_BINDINGS`.
+
+Depending when your G600 mouse was purchased, your mouse scancodes may be different from my config. Run `./g600` and press around your mouse buttons to see its scancodes. Change the scancode in `kCommands` if needed, then recompile `g600.cpp`.
