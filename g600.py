@@ -14,6 +14,15 @@ import sys
 # bytestring used because console output is also bytestring
 CUSTOM_BINDINGS = {
     b'firefox': {},
+    b'jetbrains-goland': {
+        # 'G9': 'xdotool key ctrl+shift+F4',
+        # 'G11': 'xdotool key alt+Left',
+        # 'G12': 'xdotool key ctrl+F4',
+        # 'G14': 'xdotool key alt+Right',
+        'G-shift + G10': 'xdotool key ctrl+Home',
+        'G-shift + G13': 'xdotool key ctrl+End',
+        'G-shift + G16': 'xdotool key shift+Escape',
+    },
     b'idea': {
         # 'G9': 'xdotool key ctrl+shift+F4',
         # 'G11': 'xdotool key alt+Left',
@@ -66,11 +75,11 @@ DEFAULT_BINDINGS = {
     'G13':           'xdotool key Page_Down',
     'G14':           'xdotool key ctrl+Tab',
     'G15':           'xdotool key alt+space key n',
-    'G16':           'xdotool key ctrl+alt+Up',
-    'G17':           'xdotool key ctrl+alt+Left',
+    'G16':           'xdotool key Super_L+h',
+    'G17':           'xdotool key Super_L+shift+Tab',
     'G18':           'xdotool key alt+F4',
-    'G19':           'xdotool key ctrl+alt+Down',
-    'G20':           'xdotool key ctrl+alt+Right',
+    'G19':           'xdotool key Super_L+l',
+    'G20':           'xdotool key Super_L+Tab',
     'G-shift + G9':  'xdotool key alt+9',
     'G-shift + G10': 'xdotool key Home',
     'G-shift + G11': 'xdotool key ctrl+shift+Page_Up',
@@ -81,7 +90,7 @@ DEFAULT_BINDINGS = {
     'G-shift + G16': 'xdotool key Escape',
     'G-shift + G17': 'amixer -D pulse sset Master 3%+',
     'G-shift + G18': 'playerctl next spotify',
-    'G-shift + G19': 'xdotool key alt+Tab sleep 0.1 key alt+Tab',
+    'G-shift + G19': 'xdotool key Super_L+j',
     'G-shift + G20': 'amixer -D pulse sset Master 3%-',
 }
 # convert key binding into array of strings, for subprocess.run to consume
