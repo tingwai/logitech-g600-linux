@@ -38,7 +38,10 @@ CUSTOM_BINDINGS = {
         # 'G14': 'xdotool key ctrl+Page_Down',
         'G14': 'true',  # no-op
     },
-    b'sublime': {},
+    b'sublime': {
+        'G-shift + G10': 'xdotool key ctrl+Home',     # top of file
+        'G-shift + G13': 'xdotool key ctrl+End',      # bottom of file
+    },
     b'spotify': {
         'G11': 'xdotool key alt+Left',   # back page
         'G14': 'xdotool key alt+Right',  # forward page
