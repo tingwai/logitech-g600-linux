@@ -37,10 +37,14 @@ CUSTOM_BINDINGS = {
         'G-shift + G16': 'xdotool key shift+Escape',
     },
     b'terminal': {
+        'G10': 'xdotool key shift+Page_Up',
         # 'G11': 'xdotool key ctrl+Page_Up',
         'G11': 'true',  # no-op
+        'G13': 'xdotool key shift+Page_Down',
         # 'G14': 'xdotool key ctrl+Page_Down',
         'G14': 'true',  # no-op
+        'G-shift + G10': 'xdotool key shift+Home',
+        'G-shift + G13': 'xdotool key shift+End',
     },
     b'sublime': {
         'G-shift + G10': 'xdotool key ctrl+Home',     # top of file
