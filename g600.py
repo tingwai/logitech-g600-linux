@@ -125,7 +125,13 @@ def main(mouse_button):
 
     # get two strings in quotation marks
     # eg. 'WM_CLASS(STRING) = "Navigator", "Firefox"' --> ["Navigator", "Firefox"]
-    instance, class_name = re.findall(r'"(.*?)"', str(active_window))
+    values = re.findall(r'"(.*?)"', str(active_window))
+
+    # there could be no active window like if on an empty workspace
+    if len(values) == 0:
+        run_default(mouse_button)
+        return
+    instance, class_name = values
 
     if instance in CUSTOM_BINDINGS.keys():
         run_custom(instance, mouse_button)
