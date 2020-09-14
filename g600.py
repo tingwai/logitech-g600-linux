@@ -1,3 +1,4 @@
+import re
 import subprocess
 import sys
 
@@ -11,10 +12,11 @@ import sys
 +-------+-------+-------+-------+
 """
 
-# bytestring used because console output is also bytestring
+# key names are the instance names from WM_CLASS (ie. first value from `xprop WM_CLASS`)
+# values are a dictionary mapping mouse button coming from driving and its corresponding command
 CUSTOM_BINDINGS = {
-    b'firefox': {},
-    b'jetbrains-goland': {
+    'Navigator': {},  # firefox, no custom hotkeys yet
+    'jetbrains-goland': {
         'G9': 'xdotool key ctrl+shift+F4',            # restore tab
         'G11': 'xdotool key alt+Left',                # go to left tab
         'G12': 'xdotool key ctrl+F4',                 # close tab
@@ -27,7 +29,7 @@ CUSTOM_BINDINGS = {
         'G-shift + G14': 'xdotool key alt+Down',      # next method
         'G-shift + G16': 'xdotool key shift+Escape',  # hide window
     },
-    b'idea': {
+    'idea': {
         # 'G9': 'xdotool key ctrl+shift+F4',
         # 'G11': 'xdotool key alt+Left',
         # 'G12': 'xdotool key ctrl+F4',
@@ -36,7 +38,7 @@ CUSTOM_BINDINGS = {
         'G-shift + G13': 'xdotool key ctrl+End',
         'G-shift + G16': 'xdotool key shift+Escape',
     },
-    b'terminal': {
+    'gnome-terminal-server': {
         'G10': 'xdotool key shift+Page_Up',
         # 'G11': 'xdotool key ctrl+Page_Up',
         'G11': 'true',  # no-op
@@ -46,15 +48,15 @@ CUSTOM_BINDINGS = {
         'G-shift + G10': 'xdotool key shift+Home',
         'G-shift + G13': 'xdotool key shift+End',
     },
-    b'sublime': {
+    'sublime_text': {
         'G-shift + G10': 'xdotool key ctrl+Home',     # top of file
         'G-shift + G13': 'xdotool key ctrl+End',      # bottom of file
     },
-    b'spotify': {
+    'spotify': {
         'G11': 'xdotool key alt+Left',   # back page
         'G14': 'xdotool key alt+Right',  # forward page
     },
-    b'pycharm': {
+    'pycharm': {
         'G9': 'xdotool key ctrl+shift+F4',
         'G11': 'xdotool key alt+Left',
         'G12': 'xdotool key ctrl+F4',
@@ -63,10 +65,9 @@ CUSTOM_BINDINGS = {
         'G-shift + G13': 'xdotool key ctrl+End',
         'G-shift + G16': 'xdotool key shift+Escape',
     },
-    # b'robo3t': {},
-    # b'chrome': {},
-    # b'chromium': {},
-    b'vlc': {
+    # 'chrome': {},
+    # 'chromium': {},
+    'vlc': {
         'G9': 'xdotool key shift+Left',                # back 3 seconds
         'G10': 'xdotool key alt+Left',                 # back 10 seconds
         'G11': 'xdotool key ctrl+Left',                # back 60 seconds
@@ -113,30 +114,29 @@ DEFAULT_BINDINGS.update((key, val.split(' ')) for key, val in DEFAULT_BINDINGS.i
 
 # manual override bindings since splitting on space won't work here
 # TODO: needs clean up
-DEFAULT_BINDINGS['G-shift + G15'] = ['python3', '-c', 'from roku import Roku; r=Roku("10.0.0.42"); r.volume_up(); r.volume_up()']
+DEFAULT_BINDINGS['G-shift + G15'] = ['python3', '-c', 'import sys; sys.stdout = open("/tmp/mypipe", "w"); print("pause")']
 DEFAULT_BINDINGS['G-shift + G18'] = ['python3', '-c', 'from roku import Roku; r=Roku("10.0.0.42"); r.volume_down(); r.volume_down()']
 
 
 def main(mouse_button):
-    # get active window and number
-    active_window = subprocess.run(['xdotool', 'getactivewindow'], stdout=subprocess.PIPE)
-    active_num = active_window.stdout.strip()
+    # get active window name
+    active_window = subprocess.run(['xprop WM_CLASS -id $(xdotool getactivewindow)'], stdout=subprocess.PIPE, shell=True)
+    active_window = active_window.stdout.strip()
 
-    # run custom binding if active window is customized
-    for program in CUSTOM_BINDINGS.keys():
-        program_list = subprocess.run(['xdotool', 'search', '--class', program], stdout=subprocess.PIPE)
-        program_nums = program_list.stdout
+    # get two strings in quotation marks
+    # eg. 'WM_CLASS(STRING) = "Navigator", "Firefox"' --> ["Navigator", "Firefox"]
+    instance, class_name = re.findall(r'"(.*?)"', str(active_window))
 
-        if active_num in program_nums:
-            run_custom(program, mouse_button)
-            return
+    if instance in CUSTOM_BINDINGS.keys():
+        run_custom(instance, mouse_button)
+    else:
+        run_default(mouse_button)
 
-    run_default(mouse_button)
-
+    return
 
 def run_default(mouse_button):
     subprocess.run(DEFAULT_BINDINGS[mouse_button])
-    print_action(b'default', mouse_button, DEFAULT_BINDINGS[mouse_button])
+    print_action('default', mouse_button, DEFAULT_BINDINGS[mouse_button])
 
 
 def run_custom(program, mouse_button):
@@ -148,7 +148,7 @@ def run_custom(program, mouse_button):
 
 
 def print_action(program, mouse_button, binding):
-    print(f'{program.upper().decode()}: {mouse_button}: {" ".join(binding)}\n')
+    print(f'{program.upper()}: {mouse_button}: {" ".join(binding)}\n')
 
 
 if __name__ == '__main__':
