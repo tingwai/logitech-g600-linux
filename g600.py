@@ -101,10 +101,10 @@ DEFAULT_BINDINGS = {
     'G-shift + G12': 'xdotool key ctrl+r',                # reload page
     'G-shift + G13': 'xdotool key End',
     'G-shift + G14': 'xdotool key ctrl+shift+Page_Down',  # move tab right/down
-    'G-shift + G15': 'playerctl play-pause spotify',      # music: play/pause
+    'G-shift + G15': 'timeout 0.1s playerctl play-pause', # play/pause
     'G-shift + G16': 'xdotool key Escape',
     'G-shift + G17': 'amixer -D pulse sset Master 3%+',   # volume up
-    'G-shift + G18': 'playerctl next spotify',            # music: next track
+    'G-shift + G18': 'xdotool key Caps_Lock',
     'G-shift + G19': 'xdotool key Super_L+j',             # i3: focus down
     'G-shift + G20': 'amixer -D pulse sset Master 3%-',   # volume down
 }
@@ -114,8 +114,8 @@ DEFAULT_BINDINGS.update((key, val.split(' ')) for key, val in DEFAULT_BINDINGS.i
 
 # manual override bindings since splitting on space won't work here
 # TODO: needs clean up
-DEFAULT_BINDINGS['G-shift + G15'] = ['python3', '-c', 'import sys; sys.stdout = open("/tmp/mypipe", "w"); print("pause")']
-DEFAULT_BINDINGS['G-shift + G18'] = ['python3', '-c', 'from roku import Roku; r=Roku("10.0.0.42"); r.volume_down(); r.volume_down()']
+# DEFAULT_BINDINGS['G-shift + G15'] = ['python3', '-c', 'import sys; sys.stdout = open("/tmp/mypipe", "w"); print("pause")']
+# DEFAULT_BINDINGS['G-shift + G18'] = ['python3', '-c', 'from roku import Roku; r=Roku("10.0.0.42"); r.volume_down(); r.volume_down()']
 
 
 def main(mouse_button):
