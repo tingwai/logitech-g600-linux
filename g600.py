@@ -40,11 +40,9 @@ CUSTOM_BINDINGS = {
     },
     'gnome-terminal-server': {
         'G10': 'xdotool key shift+Page_Up',
-        # 'G11': 'xdotool key ctrl+Page_Up',
-        'G11': 'true',  # no-op
+        'G11': 'xdotool key ctrl+Page_Up',
         'G13': 'xdotool key shift+Page_Down',
-        # 'G14': 'xdotool key ctrl+Page_Down',
-        'G14': 'true',  # no-op
+        'G14': 'xdotool key ctrl+Page_Down',
         'G-shift + G10': 'xdotool key shift+Home',
         'G-shift + G13': 'xdotool key shift+End',
     },
@@ -89,12 +87,12 @@ DEFAULT_BINDINGS = {
     'G12':           'xdotool key ctrl+w',                # close tab/view/window
     'G13':           'xdotool key Page_Down',
     'G14':           'xdotool key ctrl+Tab',              # next tab/view
-    'G15':           'xdotool key alt+space key n',
-    'G16':           'xdotool key Super_L+h',             # i3: focus left
-    'G17':           'xdotool key Super_L+shift+Tab',     # i3: workspace left
+    'G15':           'xdotool key super+h',               # "minimize" window to bottom
+    'G16':           'xdotool key alt+Tab',
+    'G17':           'xdotool key super+Page_Up',         # previous workspace
     'G18':           'xdotool key alt+F4',
-    'G19':           'xdotool key Super_L+l',             # i3: focus right
-    'G20':           'xdotool key Super_L+Tab',           # i3: workspace right
+    'G19':           'xdotool key ctrl+alt+Down',         # down workspace
+    'G20':           'xdotool key super+Page_Down',       # next workspace
     'G-shift + G9':  'xdotool key alt+9',                 # last tab (for browser)
     'G-shift + G10': 'xdotool key Home',
     'G-shift + G11': 'xdotool key ctrl+shift+Page_Up',    # move tab left/up
