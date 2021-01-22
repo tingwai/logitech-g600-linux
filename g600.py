@@ -102,10 +102,10 @@ DEFAULT_BINDINGS = {
     'G14':           'xdotool key ctrl+Tab',              # next tab/view
     'G15':           'xdotool key super+h',               # "minimize" window to bottom
     'G16':           'xdotool key alt+Tab',
-    'G17':           'xdotool key super+Page_Up',         # previous workspace
+    'G17':           'xdotool key super+shift+Tab',       # previous workspace
     'G18':           'xdotool key alt+F4',
     'G19':           'xdotool key ctrl+alt+Down',         # down workspace
-    'G20':           'xdotool key super+Page_Down',       # next workspace
+    'G20':           'xdotool key super+Tab',             # next workspace
     'G-shift + G9':  'xdotool key alt+9',                 # last tab (for browser)
     'G-shift + G10': 'xdotool key Home',
     'G-shift + G11': 'xdotool key ctrl+shift+Page_Up',    # move tab left/up
