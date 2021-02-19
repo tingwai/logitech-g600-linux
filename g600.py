@@ -76,6 +76,19 @@ CUSTOM_BINDINGS = {
         'G-shift + G13': 'xdotool key ctrl+End',
         'G-shift + G16': 'xdotool key shift+Escape',
     },
+    'jetbrains-pycharm-ce': {
+        'G9': 'xdotool key ctrl+shift+F4',  # restore tab
+        'G11': 'xdotool key alt+Left',  # go to left tab
+        'G12': 'xdotool key ctrl+F4',  # close tab
+        'G14': 'xdotool key alt+Right',  # go to right tab
+        'G-shift + G9': 'xdotool key alt+shift+Up',  # previous change
+        'G-shift + G10': 'xdotool key ctrl+Home',  # top of file
+        'G-shift + G11': 'xdotool key alt+Up',  # previous method
+        'G-shift + G12': 'xdotool key alt+shift+Down',  # next change
+        'G-shift + G13': 'xdotool key ctrl+End',  # bottom of file
+        'G-shift + G14': 'xdotool key alt+Down',  # next method
+        'G-shift + G16': 'xdotool key shift+Escape',  # hide window
+    },
     # 'chrome': {},
     # 'chromium': {},
     'vlc': {
@@ -106,7 +119,7 @@ DEFAULT_BINDINGS = {
     'G18':           'xdotool key alt+F4',
     'G19':           'xdotool key ctrl+alt+Down',         # down workspace
     'G20':           'xdotool key super+Tab',             # next workspace
-    'G-shift + G9':  'xdotool key alt+9',                 # last tab (for browser)
+    'G-shift + G9':  'xdotool key ctrl+9',                 # last tab (for browser)
     'G-shift + G10': 'xdotool key Home',
     'G-shift + G11': 'xdotool key ctrl+shift+Page_Up',    # move tab left/up
     'G-shift + G12': 'xdotool key ctrl+r',                # reload page
