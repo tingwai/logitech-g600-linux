@@ -22,13 +22,13 @@ CUSTOM_BINDINGS = {
         'G11': 'xdotool key alt+Left',                # go to left tab
         'G12': 'xdotool key ctrl+F4',                 # close tab
         'G14': 'xdotool key alt+Right',               # go to right tab
-        'G_shift_G9': 'xdotool key alt+shift+Up',   # previous change
-        'G_shift_G10': 'xdotool key ctrl+Home',     # top of file
-        'G_shift_G11': 'xdotool key alt+Up',        # previous method
-        'G_shift_G12': 'xdotool key alt+shift+Down',# next change
-        'G_shift_G13': 'xdotool key ctrl+End',      # bottom of file
-        'G_shift_G14': 'xdotool key alt+Down',      # next method
-        'G_shift_G16': 'xdotool key shift+Escape',  # hide window
+        'G_shift_G9': 'xdotool key alt+shift+Up',     # previous change
+        'G_shift_G10': 'xdotool key ctrl+Home',       # top of file
+        'G_shift_G11': 'xdotool key alt+Up',          # previous method
+        'G_shift_G12': 'xdotool key alt+shift+Down',  # next change
+        'G_shift_G13': 'xdotool key ctrl+End',        # bottom of file
+        'G_shift_G14': 'xdotool key alt+Down',        # next method
+        'G_shift_G16': 'xdotool key shift+Escape',    # hide window
     },
     'idea': {
         # 'G9': 'xdotool key ctrl+shift+F4',
@@ -44,13 +44,13 @@ CUSTOM_BINDINGS = {
         'G11': 'xdotool key alt+Left',                # go to left tab
         'G12': 'xdotool key ctrl+F4',                 # close tab
         'G14': 'xdotool key alt+Right',               # go to right tab
-        'G_shift_G9': 'xdotool key alt+shift+Up',   # previous change
-        'G_shift_G10': 'xdotool key ctrl+Home',     # top of file
-        'G_shift_G11': 'xdotool key alt+Up',        # previous method
-        'G_shift_G12': 'xdotool key alt+shift+Down',# next change
-        'G_shift_G13': 'xdotool key ctrl+End',      # bottom of file
-        'G_shift_G14': 'xdotool key alt+Down',      # next method
-        'G_shift_G16': 'xdotool key shift+Escape',  # hide window
+        'G_shift_G9': 'xdotool key alt+shift+Up',     # previous change
+        'G_shift_G10': 'xdotool key ctrl+Home',       # top of file
+        'G_shift_G11': 'xdotool key alt+Up',          # previous method
+        'G_shift_G12': 'xdotool key alt+shift+Down',  # next change
+        'G_shift_G13': 'xdotool key ctrl+End',        # bottom of file
+        'G_shift_G14': 'xdotool key alt+Down',        # next method
+        'G_shift_G16': 'xdotool key shift+Escape',    # hide window
     },
     'gnome-terminal-server': {
         'G10': 'xdotool key shift+Page_Up',
@@ -82,13 +82,13 @@ CUSTOM_BINDINGS = {
         'G11': 'xdotool key alt+Left',                  # go to left tab
         'G12': 'xdotool key ctrl+F4',                   # close tab
         'G14': 'xdotool key alt+Right',                 # go to right tab
-        'G_shift_G9': 'xdotool key alt+shift+Up',     # previous change
-        'G_shift_G10': 'xdotool key ctrl+Home',       # top of file
-        'G_shift_G11': 'xdotool key alt+Up',          # previous method
-        'G_shift_G12': 'xdotool key alt+shift+Down',  # next change
-        'G_shift_G13': 'xdotool key ctrl+End',        # bottom of file
-        'G_shift_G14': 'xdotool key alt+Down',        # next method
-        'G_shift_G16': 'xdotool key shift+Escape',    # hide window
+        'G_shift_G9': 'xdotool key alt+shift+Up',       # previous change
+        'G_shift_G10': 'xdotool key ctrl+Home',         # top of file
+        'G_shift_G11': 'xdotool key alt+Up',            # previous method
+        'G_shift_G12': 'xdotool key alt+shift+Down',    # next change
+        'G_shift_G13': 'xdotool key ctrl+End',          # bottom of file
+        'G_shift_G14': 'xdotool key alt+Down',          # next method
+        'G_shift_G16': 'xdotool key shift+Escape',      # hide window
     },
     # 'chrome': {},
     # 'chromium': {},
@@ -99,7 +99,7 @@ CUSTOM_BINDINGS = {
         'G12': 'xdotool key shift+Right',              # forward 3 seconds
         'G13': 'xdotool key alt+Right',                # forward 10 seconds
         'G14': 'xdotool key ctrl+Right',               # forward 60 seconds
-        'G_shift_G15': 'xdotool key XF86AudioPlay',  # play/pause
+        'G_shift_G15': 'xdotool key XF86AudioPlay',    # play/pause
     }
 }
 for program, bindings in CUSTOM_BINDINGS.items():
@@ -120,18 +120,18 @@ DEFAULT_BINDINGS = {
     'G18':           'xdotool key alt+F4',
     'G19':           'xdotool key ctrl+alt+Down',         # down workspace
     'G20':           'xdotool key super+Tab',             # next workspace
-    'G_shift_G9':  'xdotool key ctrl+9',                 # last tab (for browser)
+    'G_shift_G9':  'xdotool key ctrl+9',                  # last tab (for browser)
     'G_shift_G10': 'xdotool key Home',
-    'G_shift_G11': 'xdotool key ctrl+shift+Page_Up',    # move tab left/up
-    'G_shift_G12': 'xdotool key ctrl+r',                # reload page
+    'G_shift_G11': 'xdotool key ctrl+shift+Page_Up',      # move tab left/up
+    'G_shift_G12': 'xdotool key ctrl+r',                  # reload page
     'G_shift_G13': 'xdotool key End',
-    'G_shift_G14': 'xdotool key ctrl+shift+Page_Down',  # move tab right/down
-    'G_shift_G15': 'timeout 0.1s playerctl play-pause', # play/pause
+    'G_shift_G14': 'xdotool key ctrl+shift+Page_Down',    # move tab right/down
+    'G_shift_G15': 'timeout 0.1s playerctl play-pause',   # play/pause
     'G_shift_G16': 'xdotool key Escape',
-    'G_shift_G17': 'amixer -D pulse sset Master 3%+',   # volume up
+    'G_shift_G17': 'amixer -D pulse sset Master 3%+',     # volume up
     'G_shift_G18': 'xdotool key Caps_Lock',
-    'G_shift_G19': 'xdotool key Super_L+j',             # i3: focus down
-    'G_shift_G20': 'amixer -D pulse sset Master 3%-',   # volume down
+    'G_shift_G19': 'xdotool key Super_L+j',               # i3: focus down
+    'G_shift_G20': 'amixer -D pulse sset Master 3%-',     # volume down
 }
 # convert key binding into array of strings, for subprocess.run to consume
 # eg. ['xdotool', 'key', 'ctrl+Page_Up']
