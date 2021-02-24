@@ -10,7 +10,7 @@ Before running this program open the Logitech Gaming Software on a Windows or Ma
 2. Open `g600.py` and fill in the commands for the keys.
     * Set default bindings in `DEFAULT_BINDINGS`
     * Set program specific bindings in `CUSTOM_BINDINGS`
-3. Compile with `g++ g600.cpp -o g600`.
+3. Compile with `gcc g600.c -o g600`.
 4. Run with `sudo ./g600`.
 
 For command ideas you can look at programs like `xdotool`, `xdo`, `pulseaudio-ctl`, `xclip`, `i3-msg`. You can also run your own scripts.
