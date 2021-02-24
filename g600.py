@@ -77,17 +77,17 @@ CUSTOM_BINDINGS = {
         'G-shift + G16': 'xdotool key shift+Escape',
     },
     'jetbrains-pycharm-ce': {
-        'G9': 'xdotool key ctrl+shift+F4',  # restore tab
-        'G11': 'xdotool key alt+Left',  # go to left tab
-        'G12': 'xdotool key ctrl+F4',  # close tab
-        'G14': 'xdotool key alt+Right',  # go to right tab
-        'G-shift + G9': 'xdotool key alt+shift+Up',  # previous change
-        'G-shift + G10': 'xdotool key ctrl+Home',  # top of file
-        'G-shift + G11': 'xdotool key alt+Up',  # previous method
+        'G9': 'xdotool key ctrl+shift+F4',              # restore tab
+        'G11': 'xdotool key alt+Left',                  # go to left tab
+        'G12': 'xdotool key ctrl+F4',                   # close tab
+        'G14': 'xdotool key alt+Right',                 # go to right tab
+        'G-shift + G9': 'xdotool key alt+shift+Up',     # previous change
+        'G-shift + G10': 'xdotool key ctrl+Home',       # top of file
+        'G-shift + G11': 'xdotool key alt+Up',          # previous method
         'G-shift + G12': 'xdotool key alt+shift+Down',  # next change
-        'G-shift + G13': 'xdotool key ctrl+End',  # bottom of file
-        'G-shift + G14': 'xdotool key alt+Down',  # next method
-        'G-shift + G16': 'xdotool key shift+Escape',  # hide window
+        'G-shift + G13': 'xdotool key ctrl+End',        # bottom of file
+        'G-shift + G14': 'xdotool key alt+Down',        # next method
+        'G-shift + G16': 'xdotool key shift+Escape',    # hide window
     },
     # 'chrome': {},
     # 'chromium': {},
@@ -163,6 +163,7 @@ def main(mouse_button):
         run_default(mouse_button)
 
     return
+
 
 def run_default(mouse_button):
     subprocess.run(DEFAULT_BINDINGS[mouse_button])
