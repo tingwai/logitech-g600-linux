@@ -26,6 +26,6 @@ sudo chmod g+s g600
 
 When doing initial configuration through Logitech Gaming Software, the G-shift + G9 ... G20 keys should be changed from their default bindings Ctrl+1, Ctrl+2, etc, to something like A, B, etc. Not doing so caused all keys with a Ctrl+num binding to emit the same signature thus unable to assign them different bindings.
 
-Run `xdotool search --class <program_name>` to find the name of a program to add to `CUSTOM_BINDINGS`.
+To find the name of a program to add to `CUSTOM_BINDINGS` run 1) `xprop WM_CLASS`, 2) click program, 3) use the first value from output as key in `CUSTOM_BINDINGS`.
 
-Depending when your G600 mouse was purchased, your mouse scancodes may be different from my config. Run `./g600` and press around your mouse buttons to see its scancodes. Change the scancode in `kCommands` if needed, then recompile `g600.cpp`.
+Depending on when your G600 mouse was purchased, your mouse scancodes may be different from my config. Run `./g600` and press around your mouse buttons to see its scancodes. Change the scancode in `downCommands`, `upCommands` if needed, then recompile `g600.c`.
