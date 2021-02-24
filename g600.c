@@ -15,24 +15,24 @@ const char kSuffix[] = "-if01-event-kbd";
 // ADD KEY->COMMAND MAPPINGS HERE:
 const char *downCommands[] = {
   //[scancode] = "command to run",
-  [4] = "python3 ./g600.py 'G-shift + G9' &", // scroll left
-  [5] = "python3 ./g600.py 'G-shift + G10' &", // scroll right
-  [6] = "python3 ./g600.py 'G-shift + G11' &", // G8
-  [7] = "python3 ./g600.py 'G-shift + G12' &", // G7
-  [8] = "python3 ./g600.py 'G-shift + G13' &", // G9
-  [9] = "python3 ./g600.py 'G-shift + G14' &", // G10
-  [10] = "python3 ./g600.py 'G-shift + G15' &", // G11
-  [11] = "python3 ./g600.py 'G-shift + G16' &", // G12
-  [12] = "python3 ./g600.py 'G-shift + G17' &", // G13
-  [13] = "python3 ./g600.py 'G-shift + G18' &", // G14
-  [14] = "python3 ./g600.py 'G-shift + G19' &", // G15
-  [15] = "python3 ./g600.py 'G-shift + G20' &", // G16
-  [30] = "python3 ./g600.py 'G9' &", // G-shift + G15
-  [31] = "python3 ./g600.py 'G10' &", // G-shift + G16
-  [32] = "python3 ./g600.py 'G11' &", // G-shift + G17
-  [33] = "python3 ./g600.py 'G12' &", // G-shift + G18
-  [34] = "python3 ./g600.py 'G13' &", // G-shift + G19
-  [35] = "python3 ./g600.py 'G14' &", // G-shift + G20
+  [4] = "python3 ./g600.py 'G_shift_G9' &",
+  [5] = "python3 ./g600.py 'G_shift_G10' &",
+  [6] = "python3 ./g600.py 'G_shift_G11' &",
+  [7] = "python3 ./g600.py 'G_shift_G12' &",
+  [8] = "python3 ./g600.py 'G_shift_G13' &",
+  [9] = "python3 ./g600.py 'G_shift_G14' &",
+  [10] = "python3 ./g600.py 'G_shift_G15' &",
+  [11] = "python3 ./g600.py 'G_shift_G16' &",
+  [12] = "python3 ./g600.py 'G_shift_G17' &",
+  [13] = "python3 ./g600.py 'G_shift_G18' &",
+  [14] = "python3 ./g600.py 'G_shift_G19' &",
+  [15] = "python3 ./g600.py 'G_shift_G20' &",
+  [30] = "python3 ./g600.py 'G9' &",
+  [31] = "python3 ./g600.py 'G10' &",
+  [32] = "python3 ./g600.py 'G11' &",
+  [33] = "python3 ./g600.py 'G12' &",
+  [34] = "python3 ./g600.py 'G13' &",
+  [35] = "python3 ./g600.py 'G14' &",
   [36] = "python3 ./g600.py 'G15' &",
   [37] = "python3 ./g600.py 'G16' &",
   [38] = "python3 ./g600.py 'G17' &",
@@ -42,7 +42,30 @@ const char *downCommands[] = {
 };
 const char *upCommands[] = {
   //[scancode] = "command to run",
-  [37] = "echo button up"
+  [4] = "pkill -f 'python3 ./g600.py G_shift_G9'",
+  [5] = "pkill -f 'python3 ./g600.py G_shift_G10'",
+  [6] = "pkill -f 'python3 ./g600.py G_shift_G11'",
+  [7] = "pkill -f 'python3 ./g600.py G_shift_G12'",
+  [8] = "pkill -f 'python3 ./g600.py G_shift_G13'",
+  [9] = "pkill -f 'python3 ./g600.py G_shift_G14'",
+  [10] = "pkill -f 'python3 ./g600.py G_shift_G15'",
+  [11] = "pkill -f 'python3 ./g600.py G_shift_G16'",
+  [12] = "pkill -f 'python3 ./g600.py G_shift_G17'",
+  [13] = "pkill -f 'python3 ./g600.py G_shift_G18'",
+  [14] = "pkill -f 'python3 ./g600.py G_shift_G19'",
+  [15] = "pkill -f 'python3 ./g600.py G_shift_G20'",
+  [30] = "pkill -f 'python3 ./g600.py G9'",
+  [31] = "pkill -f 'python3 ./g600.py G10'",
+  [32] = "pkill -f 'python3 ./g600.py G11'",
+  [33] = "pkill -f 'python3 ./g600.py G12'",
+  [34] = "pkill -f 'python3 ./g600.py G13'",
+  [35] = "pkill -f 'python3 ./g600.py G14'",
+  [36] = "pkill -f 'python3 ./g600.py G15'",
+  [37] = "pkill -f 'python3 ./g600.py G16'",
+  [38] = "pkill -f 'python3 ./g600.py G17'",
+  [39] = "pkill -f 'python3 ./g600.py G18'",
+  [45] = "pkill -f 'python3 ./g600.py G19'",
+  [46] = "pkill -f 'python3 ./g600.py G20'",
 };
 
 int starts_with(const char* haystack, const char* prefix) {
@@ -133,7 +156,7 @@ int main() {
 
     printf("Executing: \"%s\"\n", cmdToRun);
     system(cmdToRun);
-    printf("\n");
+    // printf("\n");
   }
   
   close(fd);
